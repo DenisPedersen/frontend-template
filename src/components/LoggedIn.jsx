@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import facade from "../utils/loginFacade";
 
-export default function LoggedIn({setLoggedIn}) {
+export default function LoggedIn({setLoggedIn, loginCredentials}) {
 
     const logout = () => {
         facade.logout()
@@ -10,7 +10,7 @@ export default function LoggedIn({setLoggedIn}) {
 
     return (
         <div className="login-container">
-            <p></p>
+            <p>{loginCredentials.user}</p>
             <button onClick={logout}>Logout</button>
         </div>
     )

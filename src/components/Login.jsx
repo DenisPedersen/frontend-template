@@ -2,9 +2,7 @@ import React, {useRef, useState} from 'react';
 import facade from "../utils/loginFacade";
 import { NavLink } from "react-router-dom";
 
-function Login({setLoggedIn}) {
-    const init = {username: "", password: ""};
-    const [loginCredentials, setLoginCredentials] = useState(init);
+function Login({setLoggedIn, loginCredentials, setLoginCredentials}) {
 
     const performLogin = (evt) => {
         evt.preventDefault();

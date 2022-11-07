@@ -1,10 +1,13 @@
-import React from "react";
+import {useState} from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/Header.css";
 import Login from "./Login";
 import LoggedIn from "./LoggedIn";
 
 function Header({loggedIn,setLoggedIn}) {
+  const init = {username: "", password: ""};
+    const [loginCredentials, setLoginCredentials] = useState(init);
+
   return (
     <>
       <nav className="topnav">
@@ -15,9 +18,9 @@ function Header({loggedIn,setLoggedIn}) {
           <NavLink to="/test3">Test3</NavLink>
           <NavLink to="/test4">Test4</NavLink>
           <div className="login-container">
-          {!loggedIn ? (<Login setLoggedIn={setLoggedIn}  />) :
+          {!loggedIn ? (<Login setLoggedIn={setLoggedIn} loginCredentials={loginCredentials} setLoginCredentials={setLoginCredentials}  />) :
                 (<div>
-                    <LoggedIn setLoggedIn={setLoggedIn}/>
+                    <LoggedIn setLoggedIn={setLoggedIn} loginCredentials={loginCredentials} />
                 </div>)}
           </div>
 
