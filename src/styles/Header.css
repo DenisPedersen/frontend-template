@@ -90,3 +90,12 @@
     transition: 0.5s;
     z-index: 0;
   }
+
+  .loggedin{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .username-header{
+    margin-right: 15px;
+  }

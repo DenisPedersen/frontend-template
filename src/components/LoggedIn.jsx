@@ -1,18 +1,22 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import facade from "../utils/loginFacade";
 
-export default function LoggedIn({setLoggedIn, loginCredentials}) {
+export default function LoggedIn({ setLoggedIn, loginCredentials }) {
+  const logout = () => {
+    facade.logout();
+    setLoggedIn(false);
+  };
 
-    const logout = () => {
-        facade.logout()
-        setLoggedIn(false)
-    }
-
-    return (
-        <div className="login-container">
-            <p>{loginCredentials.user}</p>
-            <button onClick={logout}>Logout</button>
+  return (
+    <div>
+      <div className="loggedin">
+        <div className="username-header">
+        <p>{loginCredentials.username}</p>
         </div>
-    )
-
+        <div className="button-header">
+        <button onClick={logout}>Logout</button>
+        </div>
+      </div>
+    </div>
+  );
 }
